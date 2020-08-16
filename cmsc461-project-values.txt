@@ -1,0 +1,52 @@
+-- SAMPLE TABLE CREATION CODE
+ create table governs (
+ agency_id char(5) not null,
+ rental_id char(5) not null,
+ foreign key(agency_id) references agency,
+ foreign key(rental_id) references rentals);
+
+-- DATA TYPES FOR ATTRIBUTES
+OFFICE TABLE
+office_name varchar(20)
+office_city varchar(20)
+square_ft numeric(5, 2)
+
+AGENCY TABLE
+agency_id char(5)
+agency_name varchar(20)
+agency_city varchar(20)
+phone_no numeric(10,0)
+
+RENTALS TABLE
+rental_id char(5)
+office_name varchar(20) foreign key**
+amount numeric(5, 2)
+end_date varchar(10)
+
+GOVERNS TABLE
+agency_id char(5) foreign key**
+rental_id char(5) foreign key**
+
+-- INSERTED VALUES FOR GSA TABLES
+insert into office values('office1', 'baltimore', 10000.30);
+insert into office values('office2', 'philly', 54321.99);
+insert into office values('office3', 'seattle', 99999.00);
+
+insert into agency values(12345, 'agency1', 'baltimore', 4108550001);
+insert into agency values(23456, 'agency2', 'philly', 2673453454);
+insert into agency values(34567, 'agency3', 'seattle', 2060980423);
+insert into agency values(45678, 'agency4', 'baltimore', 4108247910);
+
+insert into rentals values(00001, 'office1', 200.50, '2020-08-05');
+insert into rentals values(00002, 'office1', 10000.00, '2000-06-12');
+insert into rentals values(00003, 'office2', 3333.33, '1998-01-01');
+insert into rentals values(00004, 'office2', 12345.67, '2013-04-23');
+insert into rentals values(00005, 'office3', 98765.43, '2010-09-25');
+insert into rentals values(00006, 'office3', 6.00, '2020-12-21');
+
+insert into governs values(12345, 00001);
+insert into governs values(12345, 00002);
+insert into governs values(23456, 00003);
+insert into governs values(23456, 00004);
+insert into governs values(34567, 00005);
+insert into governs values(34567, 00006);
